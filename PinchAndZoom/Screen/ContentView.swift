@@ -29,6 +29,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Color.clear
                 // MARK: - Page Image
                 Image("Image")
                     .resizable()
@@ -70,6 +71,13 @@ struct ContentView: View {
                     isAnimating = true
                 }
             }
+            // MARK: - Info Panel
+            .overlay(
+                InfoPanelView(scale: imageScale, offset: imageOffset)
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                , alignment: .top
+            )
         } // MARK: - Navigation
         .navigationViewStyle(.stack)
     }
